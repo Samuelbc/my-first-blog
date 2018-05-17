@@ -1,0 +1,50 @@
+{% extends "header.html" %}
+
+{% block content %}
+<div class="container-fluid">
+  <br>
+  <br>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col">
+        {% for func in funcs %}
+        <div class="list-group">
+          <a href="{% url 'funcionarios:basic_func' func.nome %}" class="list-group-item list-group-item-action">{{func.nome}}</a>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="col">
+        <div class="form-group container">
+          <p><h3>Ordernar por:</h3></p>
+          <form method="post">
+            {% csrf_token %}
+            <p>{{ form.ordem }}</p>
+            <button type="submit" class="btn btn-dark">Nova ordem</button>
+          </form>
+          <br>
+        </div>
+        <div class="container">
+          <p><h3>Adicionar nova entrada:</h3></p>
+          <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group mr-2" role="group" aria-label="First group">
+              <a class="btn btn-dark" href="{% url 'funcionarios:entrada_comportamento' %}">Comportamento</a>
+            </div>
+            <div class="btn-group mr-2" role="group" aria-label="First group">
+              <a class="btn btn-dark" href="{% url 'funcionarios:entrada_rendimento' %}">Rendimento</a>
+            </div>
+            <div class="btn-group mr-2" role="group" aria-label="First group">
+              <a class="btn btn-dark" href="{% url 'funcionarios:entrada_erro' %}">Erro</a>
+            </div>
+            <div class="btn-group mr-2" role="group" aria-label="First group">
+              <a class="btn btn-dark" href="{% url 'expedicao:entrada_expedicao' %}">Expedicao</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}

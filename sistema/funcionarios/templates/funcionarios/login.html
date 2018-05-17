@@ -1,0 +1,20 @@
+{% extends 'headerlogin.html' %}
+
+
+{% block content %}
+<div class="container-fluid">
+  <br>
+<div class="container">
+  <br>
+  <br>
+  <h1>Login</h1>
+  <br>
+  <form class="form-group" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+  </form>
+</div>
+</div>
+
+{% endblock %}

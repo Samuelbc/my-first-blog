@@ -1,0 +1,40 @@
+{% extends "header.html" %}
+
+{% block content %}
+{% include 'anuncios/includes/htmlsnippet2.html' %}
+<div class="container-fluid">
+  <br>
+  <h3>Adicionar nova entrada de Anuncio:</h3>
+  <div class="container-fluid">
+
+    <br>
+    <form method="post">
+      {% csrf_token %}
+      <div class="row">
+        <div class="col-md">
+          <div class="container-fluid">
+            <div class="fieldWrapper">
+              {{ form.produto.errors }}
+              <strong><label for="{{ form.produto.id_for_label }}">Produto:</label></strong>
+              <p>{{ form.produto }}</p>
+            </div>
+            <div class="fieldWrapper">
+              {{ form.marca.errors }}
+              <strong><label for="{{ form.marca.id_for_label }}">Marca:</label></strong>
+              <p>{{ form.marca }}</p>
+            </div>
+            <div class="fieldWrapper">
+              {{ form.reposicao.errors }}
+              <strong><label for="{{ form.reposicao.id_for_label }}">Reposicao:</label></strong>
+              <p>{{ form.reposicao }}</p>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-dark">Salvar</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</div>
+{% endblock %}

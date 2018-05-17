@@ -1,0 +1,34 @@
+{% extends "header.html" %}
+
+{% block content %}
+{% include 'funcionarios/includes/htmlsnippet.html' %}
+
+  <div class="text-center container-fluid">
+    <br>
+    <div class="container">
+      <h1 class="jumbotron-heading">{{func.nome}}</h1>
+      <h5 class="jumbotron-heading">Comportamento:</h5>
+      <p class="lead text-muted">{{func.med_comportamento}}</p>
+      {% if func.tipo == 2 %}
+        <div class="row">
+          <div class="col">
+            <h5 class="jumbotron-heading">Rendimento:</h5>
+            <p class="lead text-muted">{{func.med_rendimento}}</p>
+            <h5 class="jumbotron-heading">Erros de etiqueta trocada:</h5>
+            <p class="lead text-muted">{{func.erro_etiqueta}}</p>
+            <h5 class="jumbotron-heading">Erros de falta produto:</h5>
+            <p class="lead text-muted">{{func.erro_falta}}</p>
+            <h5 class="jumbotron-heading">Erros de produto trocado:</h5>
+            <p class="lead text-muted">{{func.erro_troca}}</p>
+            <h5 class="jumbotron-heading">Erros de sabor errado:</h5>
+            <p class="lead text-muted">{{func.erro_sabor}}</p>
+            <h5 class="jumbotron-heading">Erros de produto vencido:</h5>
+            <p class="lead text-muted">{{func.erro_vencido}}</p>
+            <h5 class="jumbotron-heading">Erros de falta de brinde:</h5>
+            <p class="lead text-muted">{{func.erro_brinde}}</p>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

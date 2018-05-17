@@ -1,0 +1,89 @@
+{% extends "header.html" %}
+
+{% block content %}
+{% include 'funcionarios/includes/htmlsnippet2.html' %}
+<div class="container-fluid">
+  <br>
+  <h3>Adicionar nova entrada de Erro</h3>
+  <div class="container-fluid">
+
+    <br>
+    <form method="post">
+      {% csrf_token %}
+      <div class="row">
+        <div class="col-md">
+          <div class="container-fluid">
+            <div class="fieldWrapper">
+              {{ form.funcionario.errors }}
+              <strong>{{ form.funcionario.label_tag }}</strong>
+              <p>{{ form.funcionario }}</p>
+            </div>
+            <div class="fieldWrapper">
+              {{ form.pedido.errors }}
+              <strong>{{ form.pedido.label_tag }}</strong>
+              <p>{{ form.pedido }}</p>
+            </div>
+            <div class="fieldWrapper">
+              {{ form.cliente.errors }}
+              <strong>{{ form.cliente.label_tag }}</strong>
+              <p>{{ form.cliente }}</p>
+            </div>
+            <div class="fieldWrapper">
+              {{ form.erro.errors }}
+              <strong>{{ form.erro.label_tag }}</strong>
+              <p>{{ form.erro }}</p>
+            </div>
+            <div class="fieldWrapper">
+              {{ form.conta.errors }}
+              <strong>{{ form.conta.label_tag }}</strong></strong>
+              <p>{{ form.conta }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="container-fluid">
+            <div class="fieldWrapper">
+              <strong><p>Data:</p></strong>
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td><label for="{{ form.dia.id_for_label }}">Dia</label></td>
+                    <td><label for="{{ form.mes.id_for_label }}">Mes</label></td>
+                    <td><label for="{{ form.ano.id_for_label }}">Ano</label></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.dia }}</td>
+                    <td>{{ form.mes }}</td>
+                    <td>{{ form.ano }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <br>
+            <div class="fieldWrapper">
+              <strong><p>Data Pedido:</p></strong>
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td><label for="{{ form.dia_pedido.id_for_label }}">Dia</label></td>
+                    <td><label for="{{ form.mes_pedido.id_for_label }}">Mes</label></td>
+                    <td><label for="{{ form.ano_pedido.id_for_label }}">Ano</label></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.dia_pedido }}</td>
+                    <td>{{ form.mes_pedido }}</td>
+                    <td>{{ form.ano_pedido }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-dark">Salvar</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

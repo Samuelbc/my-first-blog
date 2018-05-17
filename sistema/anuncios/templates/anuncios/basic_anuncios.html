@@ -1,0 +1,36 @@
+{% extends "header.html" %}
+
+{% block content %}
+{% include 'anuncios/includes/htmlsnippet2.html' %}
+<div role="main" class="col-lg-10 px-3">
+  <br>
+  <br>
+  <h2>Section title</h2>
+  {% if tab == 'Nenhuma entrada encontrada.' %}
+      <h3>Nenhuma entrada encontrada.</h3>
+  {% else %}
+  <div class="table-responsive">
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th>Produto</th>
+          <th>Marca</th>
+          <th>Reposicao</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for colu in tab %}
+        <tr>
+          <td>{{colu.produto}}</td>
+          <td>{{colu.marca}}</td>
+          <td>{{colu.reposicao}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% endif %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "header.html" %}
+
+{% block content %}
+{% include 'funcionarios/includes/htmlsnippet2.html' %}
+<div class="container-fluid">
+  <br>
+  <h3>Adicionar nova entrada de Rendimento</h3>
+  <div class="container-fluid">
+
+    <br>
+    <form method="post">
+      {% csrf_token %}
+      <div class="row">
+        <div class="col-md">
+          <div class="container-fluid">
+            <div class="fieldWrapper">
+              {{ form.funcionario.errors }}
+              {{ form.funcionario.label_tag }}
+              <p>{{ form.funcionario }}</p>
+            </div>
+            <div class="fieldWrapper">
+              {{ form.total_diario.errors }}
+              {{ form.total_diario.label_tag }}
+              <p>{{ form.total_diario }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="container-fluid">
+            <div class="fieldWrapper">
+              <p>Data:</p>
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td><label for="{{ form.dia.id_for_label }}">Dia</label></td>
+                    <td><label for="{{ form.mes.id_for_label }}">Mes</label></td>
+                    <td><label for="{{ form.ano.id_for_label }}">Ano</label></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.dia }}</td>
+                    <td>{{ form.mes }}</td>
+                    <td>{{ form.ano }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-dark">Salvar</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</div>
+
+{% endblock %}

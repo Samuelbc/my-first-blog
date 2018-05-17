@@ -1,0 +1,76 @@
+{% extends "header.html" %}
+
+
+{% block content %}
+{% include 'funcionarios/includes/htmlsnippet2.html' %}
+<div class="container-fluid">
+  <br>
+  <h3>Adicionar nova entrada de Comportamento</h3>
+  <div class="container-fluid">
+    <br>
+    <form method="post">
+      {% csrf_token %}
+      <div class="row">
+        <div class="col-md">
+          <div class="container-fluid">
+            <div class="fieldWrapper">
+              {{ form.funcionario.errors }}
+              <strong>{{ form.funcionario.label_tag }}</strong>
+              <p>{{ form.funcionario }}</p>
+            </div>
+            <div class="fieldWrapper">
+              {{ form.banco.errors }}
+              <strong>{{ form.banco.label_tag }}</strong>
+              <p>{{ form.banco }}</p>
+            </div>
+            <div class="fieldWrapper">
+              {{ form.ordens.errors }}
+              <strong>{{ form.ordens.label_tag }}</strong>
+              <p>{{ form.ordens }}</p>
+            </div>
+            <div class="fieldWrapper">
+              {{ form.ajuda.errors }}
+              <strong>{{ form.ajuda.label_tag }}</strong>
+              <p>{{ form.ajuda }}</p>
+            </div>
+            <div class="fieldWrapper">
+              {{ form.celular.errors }}
+              <strong>{{ form.celular.label_tag }}</strong>
+              <p>{{ form.celular }}</p>
+            </div>
+            <div class="fieldWrapper">
+              {{ form.pausa_indev.errors }}
+              <strong><label for="{{ form.pausa_indev.id_for_label }}">Pausa indevida:</label></strong>
+              <p>{{ form.pausa_indev }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="container-fluid">
+            <div class="fieldWrapper">
+              <strong><p>Data:</p></strong>
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td><label for="{{ form.dia.id_for_label }}">Dia</label></td>
+                    <td><label for="{{ form.mes.id_for_label }}">Mes</label></td>
+                    <td><label for="{{ form.ano.id_for_label }}">Ano</label></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.dia }}</td>
+                    <td>{{ form.mes }}</td>
+                    <td>{{ form.ano }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-dark">Salvar</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% block content %}
+<nav class="navbar2 navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link active" href="{% url 'funcionarios:entrada_comportamento'%}"><strong>Novo Comportamento</strong></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="{% url 'funcionarios:entrada_rendimento'%}"><strong>Novo Rendimento</strong></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="{% url 'funcionarios:entrada_erro'%}"><strong>Novo Erro</strong></a>
+      </li>
+    </ul>
+  </nav>
+  {% endblock %}

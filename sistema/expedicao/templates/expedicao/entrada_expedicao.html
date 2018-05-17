@@ -1,0 +1,72 @@
+{% extends "header.html" %}
+
+{% block content %}
+{% include 'expedicao/includes/htmlsnippet2.html' %}
+<div class="container-fluid">
+  <br>
+  <h3>Adicionar nova entrada de Expedicao</h3>
+  <div class="container-fluid">
+
+    <br>
+    <form method="post">
+      {% csrf_token %}
+      <div class="row">
+        <div class="col-md">
+          <div class="container-fluid">
+            <div class="fieldWrapper">
+              {{ form.primeiro_tempo.errors }}
+              <strong><label for="{{ form.primeiro_tempo.id_for_label }}">Primeiro período:</label></strong>
+              <p>{{ form.primeiro_tempo }}</p>
+            </div>
+            <div class="fieldWrapper">
+              {{ form.segundo_tempo.errors }}
+              <strong><label for="{{ form.segundo_tempo.id_for_label }}">Segundo período:</label></strong>
+              <p>{{ form.segundo_tempo }}</p>
+            </div>
+            <div class="fieldWrapper">
+              {{ form.terceiro_tempo.errors }}
+              <strong><label for="{{ form.terceiro_tempo.id_for_label }}">Terceiro período:</label></strong>
+              <p>{{ form.terceiro_tempo }}</p>
+            </div>
+            <div class="fieldWrapper">
+              {{ form.quarto_tempo.errors }}
+              <strong><label for="{{ form.quarto_tempo.id_for_label }}">Quarto período:</label></strong>
+              <p>{{ form.quarto_tempo }}</p>
+            </div>
+            <div class="fieldWrapper">
+              {{ form.Total.errors }}
+              <strong><label for="{{ form.total.id_for_label }}">Total:</label></strong>
+              <p>{{ form.total }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="container-fluid">
+            <div class="fieldWrapper">
+              <strong><p>Data:</p></strong>
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td><label for="{{ form.dia.id_for_label }}">Dia</label></td>
+                    <td><label for="{{ form.mes.id_for_label }}">Mes</label></td>
+                    <td><label for="{{ form.ano.id_for_label }}">Ano</label></td>
+                  </tr>
+                  <tr>
+                    <td>{{ form.dia }}</td>
+                    <td>{{ form.mes }}</td>
+                    <td>{{ form.ano }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-dark">Salvar</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</div>
+
+{% endblock %}
